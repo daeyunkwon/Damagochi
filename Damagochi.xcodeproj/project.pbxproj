@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4411F0AD2C133F9C00878AFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0AC2C133F9C00878AFE /* AppDelegate.swift */; };
 		4411F0AF2C133F9C00878AFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0AE2C133F9C00878AFE /* SceneDelegate.swift */; };
-		4411F0B12C133F9C00878AFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0B02C133F9C00878AFE /* ViewController.swift */; };
+		4411F0B12C133F9C00878AFE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0B02C133F9C00878AFE /* MainViewController.swift */; };
 		4411F0B62C133F9D00878AFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4411F0B52C133F9D00878AFE /* Assets.xcassets */; };
 		4411F0B92C133F9D00878AFE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4411F0B82C133F9D00878AFE /* Base */; };
 		4411F0C32C1341AA00878AFE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4411F0C22C1341AA00878AFE /* .gitignore */; };
@@ -19,7 +19,7 @@
 		4411F0A92C133F9C00878AFE /* Damagochi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Damagochi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4411F0AC2C133F9C00878AFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4411F0AE2C133F9C00878AFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4411F0B02C133F9C00878AFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4411F0B02C133F9C00878AFE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4411F0B52C133F9D00878AFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4411F0B82C133F9D00878AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4411F0BA2C133F9D00878AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				4411F0C02C13414900878AFE /* Application */,
-				4411F0B02C133F9C00878AFE /* ViewController.swift */,
+				4411F0B02C133F9C00878AFE /* MainViewController.swift */,
 				4411F0C12C13415F00878AFE /* Resource */,
 			);
 			path = Damagochi;
@@ -154,7 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4411F0B12C133F9C00878AFE /* ViewController.swift in Sources */,
+				4411F0B12C133F9C00878AFE /* MainViewController.swift in Sources */,
 				4411F0AD2C133F9C00878AFE /* AppDelegate.swift in Sources */,
 				4411F0AF2C133F9C00878AFE /* SceneDelegate.swift in Sources */,
 			);
