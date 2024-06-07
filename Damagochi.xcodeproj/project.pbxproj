@@ -13,6 +13,12 @@
 		4411F0B62C133F9D00878AFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4411F0B52C133F9D00878AFE /* Assets.xcassets */; };
 		4411F0B92C133F9D00878AFE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4411F0B82C133F9D00878AFE /* Base */; };
 		4411F0C32C1341AA00878AFE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4411F0C22C1341AA00878AFE /* .gitignore */; };
+		4411F0C62C13439D00878AFE /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0C52C13439D00878AFE /* UIColor+Extension.swift */; };
+		4411F0C82C13451300878AFE /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0C72C13451300878AFE /* UIFont+Extension.swift */; };
+		4411F0CB2C1346A900878AFE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4411F0CA2C1346A900878AFE /* SnapKit */; };
+		4411F0CD2C1347A000878AFE /* Damagochi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0CC2C1347A000878AFE /* Damagochi.swift */; };
+		4411F0D02C13590D00878AFE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0CF2C13590D00878AFE /* UserDefaultsManager.swift */; };
+		4411F0D32C135D1400878AFE /* DamagochiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0D22C135D1400878AFE /* DamagochiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,11 @@
 		4411F0B82C133F9D00878AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4411F0BA2C133F9D00878AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4411F0C22C1341AA00878AFE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4411F0C52C13439D00878AFE /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		4411F0C72C13451300878AFE /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		4411F0CC2C1347A000878AFE /* Damagochi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Damagochi.swift; sourceTree = "<group>"; };
+		4411F0CF2C13590D00878AFE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		4411F0D22C135D1400878AFE /* DamagochiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamagochiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4411F0CB2C1346A900878AFE /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				4411F0C02C13414900878AFE /* Application */,
-				4411F0B02C133F9C00878AFE /* MainViewController.swift */,
+				4411F0C42C13436D00878AFE /* Utils */,
+				4411F0CE2C1347A500878AFE /* Model */,
+				4411F0D12C1359A900878AFE /* Main */,
 				4411F0C12C13415F00878AFE /* Resource */,
 			);
 			path = Damagochi;
@@ -83,6 +97,33 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		4411F0C42C13436D00878AFE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4411F0C52C13439D00878AFE /* UIColor+Extension.swift */,
+				4411F0C72C13451300878AFE /* UIFont+Extension.swift */,
+				4411F0CF2C13590D00878AFE /* UserDefaultsManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4411F0CE2C1347A500878AFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4411F0CC2C1347A000878AFE /* Damagochi.swift */,
+				4411F0D22C135D1400878AFE /* DamagochiManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4411F0D12C1359A900878AFE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4411F0B02C133F9C00878AFE /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,6 +140,9 @@
 			dependencies = (
 			);
 			name = Damagochi;
+			packageProductDependencies = (
+				4411F0CA2C1346A900878AFE /* SnapKit */,
+			);
 			productName = Damagochi;
 			productReference = 4411F0A92C133F9C00878AFE /* Damagochi.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +171,9 @@
 				Base,
 			);
 			mainGroup = 4411F0A02C133F9C00878AFE;
+			packageReferences = (
+				4411F0C92C1346A900878AFE /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 4411F0AA2C133F9C00878AFE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,8 +202,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4411F0B12C133F9C00878AFE /* MainViewController.swift in Sources */,
+				4411F0D32C135D1400878AFE /* DamagochiManager.swift in Sources */,
+				4411F0CD2C1347A000878AFE /* Damagochi.swift in Sources */,
 				4411F0AD2C133F9C00878AFE /* AppDelegate.swift in Sources */,
+				4411F0D02C13590D00878AFE /* UserDefaultsManager.swift in Sources */,
 				4411F0AF2C133F9C00878AFE /* SceneDelegate.swift in Sources */,
+				4411F0C82C13451300878AFE /* UIFont+Extension.swift in Sources */,
+				4411F0C62C13439D00878AFE /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +431,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4411F0C92C1346A900878AFE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4411F0CA2C1346A900878AFE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4411F0C92C1346A900878AFE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4411F0A12C133F9C00878AFE /* Project object */;
 }
