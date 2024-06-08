@@ -10,10 +10,17 @@ import UIKit
 struct UserDefaultsManager {
     static var damagochi: Damagochi? {
         get {
-            return UserDefaults.standard.object(forKey: "damagochi") as? Damagochi
+            if let savedData = UserDefaults.standard.object(forKey: "damagochi") as? Data {
+                if let loadedDamagochi = try? JSONDecoder().decode(Damagochi.self, from: savedData) {
+                    return loadedDamagochi
+                }
+            }
+            return nil
         }
         set {
-            UserDefaults.standard.setValue(newValue, forKey: "damagochi")
+            let encodedData = try? JSONEncoder().encode(newValue)
+            UserDefaults.standard.set(encodedData, forKey: "damagochi")
         }
     }
 }
+

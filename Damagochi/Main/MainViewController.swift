@@ -125,13 +125,14 @@ final class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupData()
+        configureUI()
+        updateComment(type: .show)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavi()
         configureLayout()
-        configureUI()
     }
     
     private func setupData() {
@@ -238,15 +239,22 @@ final class MainViewController: UIViewController {
     }
     
     private func configureUI() {
-        guard let data = damagochiManager.get() else {
-            view.backgroundColor = UIColor.customBackgroundColor
-            return
-        }
         view.backgroundColor = UIColor.customBackgroundColor
-        bubbleLabel.text = "오늘은 왠지 기분이 좋아요"
+        updateUIWithData()
+    }
+    
+    func updateUIWithData() {
+        guard let data = damagochiManager.get() else {return}
+        
         damagochiImageView.image = data.form
         nameButton.setTitle(data.damagochiName, for: .normal)
         stateLabel.text = "LV\(data.level) • 밥알 \(data.eat)개 • 물방울 \(data.drink)개"
+    }
+    
+    func updateComment(type: CommentType) {
+        damagochiManager.updateCommentType(type: type)
+        guard let data = damagochiManager.get() else {return}
+        bubbleLabel.text = data.commnet
     }
     
     //MARK: - Functions
@@ -261,17 +269,41 @@ final class MainViewController: UIViewController {
     }
     
     @objc func eatButtonTapped() {
-        print(#function)
+        guard let text = eatInputTextField.text, !text.isEmpty else {
+            damagochiManager.updateEat(numberOfEat: 1)
+            updateUIWithData()
+            updateComment(type: .eat)
+            return
+        }
+        
+        guard let eatCount = Int(text) else {return}
+        
+        if eatCount < 100 {
+            damagochiManager.updateEat(numberOfEat: eatCount)
+            updateUIWithData()
+            updateComment(type: .eat)
+        } else {
+            showAlert(message: "한 번에 먹을 수 있는 밥의 양은 99개까지 입니다!")
+        }
     }
     
     @objc func drinkButtonTapped() {
-        print(#function)
+        guard let text = drinkInputTextField.text, !text.isEmpty else {
+            damagochiManager.updateDrink(numberOfDrink: 1)
+            updateUIWithData()
+            updateComment(type: .drink)
+            return
+        }
+        
+        guard let drinkCount = Int(text) else {return}
+        
+        if drinkCount < 50 {
+            damagochiManager.updateDrink(numberOfDrink: drinkCount)
+            updateUIWithData()
+            updateComment(type: .drink)
+        } else {
+            showAlert(message: "한 번에 먹을 수 있는 물의 양은 49개까지 입니다!")
+        }
     }
-    
-    
-    
-    
-
-
 }
 

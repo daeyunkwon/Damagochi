@@ -38,44 +38,46 @@ final class DamagochiManager {
     }
     
     private func save() {
-        UserDefaultsManager.damagochi = self.damagochi
+        guard let damagochi = self.damagochi else {return}
+        UserDefaultsManager.damagochi = damagochi
+        isDataAvailable = true
     }
     
-    func updateLevel(completion: @escaping (UIImage?) -> Void) {
+    private func updateLevel() {
         guard let damagochi = self.damagochi else {return}
         
         let eat = Double(damagochi.eat) / 5
         let drink = Double(damagochi.drink) / 2
         
-        let result = Int(eat / drink)
-        self.damagochi?.level = result
-        
-        completion(self.damagochi?.form)
+        if eat != 0 && drink != 0 {
+            let result = Int(eat / drink)
+            
+            if result != 0 {
+                self.damagochi?.level = result
+            }
+        }
     }
     
-    func updateEat(numberOfEat: Int, completion: @escaping (Int?) -> Void) {
-        self.damagochi?.eat = numberOfEat
-        completion(self.damagochi?.eat)
+    func updateEat(numberOfEat: Int) {
+        self.damagochi?.eat += numberOfEat
+        updateLevel()
     }
     
-    func updateDrink(numberOfDrink: Int, completion: @escaping (Int?) -> Void) {
-        self.damagochi?.drink = numberOfDrink
-        completion(self.damagochi?.drink)
+    func updateDrink(numberOfDrink: Int) {
+        self.damagochi?.drink += numberOfDrink
+        updateLevel()
     }
     
     func updateUsername(name: String) {
-        self.damagochi?.userNmae = name
+        self.damagochi?.userName = name
     }
     
     func changeKind(kind: Kind) {
         self.damagochi?.kind = kind
     }
     
-    
-    
-    
-    
-    
-    
+    func updateCommentType(type: CommentType) {
+        self.damagochi?.commentType = type
+    }
     
 }

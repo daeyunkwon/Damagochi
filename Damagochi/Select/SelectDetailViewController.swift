@@ -75,6 +75,8 @@ final class SelectDetailViewController: UIViewController {
         btn.layer.maskedCorners = [.layerMinXMaxYCorner]
         btn.layer.cornerRadius = 5
         btn.clipsToBounds = true
+        btn.layer.borderWidth = 0.1
+        btn.layer.borderColor = UIColor.customFontColor.cgColor
         btn.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         btn.tintColor = .customFontColor
         return btn
@@ -88,6 +90,8 @@ final class SelectDetailViewController: UIViewController {
         btn.setBackgroundColor(.customFontColor, for: .highlighted)
         btn.layer.maskedCorners = [.layerMaxXMaxYCorner]
         btn.layer.cornerRadius = 5
+        btn.layer.borderWidth = 0.1
+        btn.layer.borderColor = UIColor.customFontColor.cgColor
         btn.clipsToBounds = true
         btn.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         return btn
@@ -181,23 +185,23 @@ final class SelectDetailViewController: UIViewController {
         case .firstModel:
             switch presentType {
             case .select:
-                damagochiManager.create(kind: damagochi.kind)
+                damagochiManager.create(kind: .firstModel)
             case .change:
-                damagochiManager.changeKind(kind: damagochi.kind)
+                damagochiManager.changeKind(kind: .firstModel)
             }
         case .secondModel:
             switch presentType {
             case .select:
-                damagochiManager.create(kind: damagochi.kind)
+                damagochiManager.create(kind: .secondModel)
             case .change:
-                damagochiManager.changeKind(kind: damagochi.kind)
+                damagochiManager.changeKind(kind: .secondModel)
             }
         case .thirdModel:
             switch presentType {
             case .select:
-                damagochiManager.create(kind: damagochi.kind)
+                damagochiManager.create(kind: .thirdModel)
             case .change:
-                damagochiManager.changeKind(kind: damagochi.kind)
+                damagochiManager.changeKind(kind: .thirdModel)
             }
         case .noneModel:
             showAlert(message: "아직 준비중으로 선택할 수 없습니다.")

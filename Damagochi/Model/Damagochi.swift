@@ -7,33 +7,72 @@
 
 import UIKit
 
-enum Kind {
+enum Kind: Codable {
     case firstModel
     case secondModel
     case thirdModel
     case noneModel
 }
 
-struct Damagochi {
-    var userNmae: String
+enum CommentType: Codable {
+    case eat
+    case drink
+    case show
+}
+
+struct Damagochi: Codable {
+    
+    var userName: String
     var level: Int
     var eat: Int
     var drink: Int
     var kind: Kind
+    var commentType: CommentType
+    
+    enum CodingKeys: String, CodingKey {
+        case userName
+        case level
+        case eat
+        case drink
+        case kind
+        case commentType
+    }
+    
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.userName = try container.decode(String.self, forKey: .userName)
+        self.level = try container.decode(Int.self, forKey: .level)
+        self.eat = try container.decode(Int.self, forKey: .eat)
+        self.drink = try container.decode(Int.self, forKey: .drink)
+        self.kind = try container.decode(Kind.self, forKey: .kind)
+        self.commentType = try container.decode(CommentType.self, forKey: .commentType)
+    }
+    
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.userName, forKey: .userName)
+        try container.encode(self.level, forKey: .level)
+        try container.encode(self.eat, forKey: .eat)
+        try container.encode(self.drink, forKey: .drink)
+        try container.encode(self.kind, forKey: .kind)
+        try container.encode(self.commentType, forKey: .commentType)
+    }
     
     init(kind: Kind) {
         if let data = UserDefaultsManager.damagochi {
-            self.userNmae = data.userNmae
+            self.userName = data.userName
             self.level = data.level
             self.eat = data.eat
             self.drink = data.drink
             self.kind = data.kind
+            self.commentType = data.commentType
         } else {
-            self.userNmae = "대장"
+            self.userName = "대장"
             self.level = 1
             self.eat = 0
             self.drink = 0
             self.kind = kind
+            self.commentType = .show
         }
     }
 }
@@ -192,6 +231,34 @@ extension Damagochi {
             return "저는 반짝반짝 다마고치 입니당! 키는 100km 몸무게는 150톤이에용 성격은 화끈하고 날라다닙니당~! 열심히 잘 먹고 잘 클 자신은 있답니당 반짝반짝!"
         case .noneModel:
             return "아직 준비중이에요! 많은 관심 부탁드립니다~!"
+        }
+    }
+}
+
+extension Damagochi {
+    var commnet: String {
+        switch commentType {
+        case .eat:
+            let list = [
+                "음식을 주셔서 감사해요 \(self.userName)님!",
+                "정말 맛있네요 \(self.userName)님!",
+                "냠냠 쩝쩝",
+            ]
+            return list.randomElement() ?? ""
+        case .drink:
+            let list = [
+                "마실 물을 주셔서 감사해요 \(self.userName)님!",
+                "정말 시원하네요 \(self.userName)님!",
+                "꿀꺽 꿀꺽",
+            ]
+            return list.randomElement() ?? ""
+        case .show:
+            let list = [
+                "안녕하세요 \(self.userName)님!",
+                "반가워요 \(self.userName)님!",
+                "오늘은 왠지 기분이 좋아요",
+            ]
+            return list.randomElement() ?? ""
         }
     }
 }
