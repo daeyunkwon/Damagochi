@@ -20,9 +20,27 @@ struct Damagochi {
     var drink: Int
     var kind: Kind
     
-    var form: UIImage? { 
+    init(kind: Kind) {
+        if let data = UserDefaultsManager.damagochi {
+            self.userNmae = data.userNmae
+            self.level = data.level
+            self.eat = data.eat
+            self.drink = data.drink
+            self.kind = data.kind
+        } else {
+            self.userNmae = "대장"
+            self.level = 0
+            self.eat = 0
+            self.drink = 0
+            self.kind = kind
+        }
+    }
+}
+
+extension Damagochi {
+    var form: UIImage? {
         switch level {
-        case 1: 
+        case 1:
             switch kind {
             case .firstModel:
                 return UIImage(named: "1-1")
@@ -123,24 +141,30 @@ struct Damagochi {
             }
         }
     }
-    
-    init(kind: Kind) {
-        if let data = UserDefaultsManager.damagochi {
-            self.userNmae = data.userNmae
-            self.level = data.level
-            self.eat = data.eat
-            self.drink = data.drink
-            self.kind = data.kind
-        } else {
-            self.userNmae = "대장"
-            self.level = 0
-            self.eat = 0
-            self.drink = 0
-            self.kind = kind
+}
+
+extension Damagochi {
+    var damagochiName: String {
+        switch kind {
+        case .firstModel:
+            return "따끔따끔 다마고치"
+        case .secondModel:
+            return "방실방실 다마고치"
+        case .thirdModel:
+            return "반짝반짝 다마고치"
         }
     }
 }
 
-
-
-
+extension Damagochi {
+    var description: String {
+        switch kind {
+        case .firstModel:
+            return "저는 따끔따끔 다마고치 입니당! 키는 100km 몸무게는 150톤이에용 성격은 화끈하고 날라다닙니당~! 열심히 잘 먹고 잘 클 자신은 있답니당 따끔따금!"
+        case .secondModel:
+            return "저는 방실방실 다마고치 입니당! 키는 100km 몸무게는 150톤이에용 성격은 화끈하고 날라다닙니당~! 열심히 잘 먹고 잘 클 자신은 있답니당 방실방실!"
+        case .thirdModel:
+            return "저는 반짝반짝 다마고치 입니당! 키는 100km 몸무게는 150톤이에용 성격은 화끈하고 날라다닙니당~! 열심히 잘 먹고 잘 클 자신은 있답니당 반짝반짝!"
+        }
+    }
+}

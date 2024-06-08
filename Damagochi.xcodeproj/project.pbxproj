@@ -19,6 +19,10 @@
 		4411F0CD2C1347A000878AFE /* Damagochi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0CC2C1347A000878AFE /* Damagochi.swift */; };
 		4411F0D02C13590D00878AFE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0CF2C13590D00878AFE /* UserDefaultsManager.swift */; };
 		4411F0D32C135D1400878AFE /* DamagochiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0D22C135D1400878AFE /* DamagochiManager.swift */; };
+		4411F0D52C14651600878AFE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0D42C14651600878AFE /* UIViewController+Extension.swift */; };
+		4411F0D82C146FA500878AFE /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0D72C146FA500878AFE /* SelectViewController.swift */; };
+		4411F0DA2C1470F600878AFE /* Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0D92C1470F600878AFE /* Reuseable.swift */; };
+		4411F0DC2C1471CD00878AFE /* SelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0DB2C1471CD00878AFE /* SelectTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		4411F0CC2C1347A000878AFE /* Damagochi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Damagochi.swift; sourceTree = "<group>"; };
 		4411F0CF2C13590D00878AFE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		4411F0D22C135D1400878AFE /* DamagochiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamagochiManager.swift; sourceTree = "<group>"; };
+		4411F0D42C14651600878AFE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		4411F0D72C146FA500878AFE /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		4411F0D92C1470F600878AFE /* Reuseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reuseable.swift; sourceTree = "<group>"; };
+		4411F0DB2C1471CD00878AFE /* SelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 				4411F0C02C13414900878AFE /* Application */,
 				4411F0C42C13436D00878AFE /* Utils */,
 				4411F0CE2C1347A500878AFE /* Model */,
+				4411F0D62C146F5A00878AFE /* Select */,
 				4411F0D12C1359A900878AFE /* Main */,
 				4411F0C12C13415F00878AFE /* Resource */,
 			);
@@ -103,6 +112,8 @@
 				4411F0C52C13439D00878AFE /* UIColor+Extension.swift */,
 				4411F0C72C13451300878AFE /* UIFont+Extension.swift */,
 				4411F0CF2C13590D00878AFE /* UserDefaultsManager.swift */,
+				4411F0D42C14651600878AFE /* UIViewController+Extension.swift */,
+				4411F0D92C1470F600878AFE /* Reuseable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -122,6 +133,15 @@
 				4411F0B02C133F9C00878AFE /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4411F0D62C146F5A00878AFE /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				4411F0D72C146FA500878AFE /* SelectViewController.swift */,
+				4411F0DB2C1471CD00878AFE /* SelectTableViewCell.swift */,
+			);
+			path = Select;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,14 +221,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4411F0D82C146FA500878AFE /* SelectViewController.swift in Sources */,
+				4411F0D52C14651600878AFE /* UIViewController+Extension.swift in Sources */,
 				4411F0B12C133F9C00878AFE /* MainViewController.swift in Sources */,
 				4411F0D32C135D1400878AFE /* DamagochiManager.swift in Sources */,
 				4411F0CD2C1347A000878AFE /* Damagochi.swift in Sources */,
 				4411F0AD2C133F9C00878AFE /* AppDelegate.swift in Sources */,
 				4411F0D02C13590D00878AFE /* UserDefaultsManager.swift in Sources */,
+				4411F0DA2C1470F600878AFE /* Reuseable.swift in Sources */,
 				4411F0AF2C133F9C00878AFE /* SceneDelegate.swift in Sources */,
 				4411F0C82C13451300878AFE /* UIFont+Extension.swift in Sources */,
 				4411F0C62C13439D00878AFE /* UIColor+Extension.swift in Sources */,
+				4411F0DC2C1471CD00878AFE /* SelectTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
