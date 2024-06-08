@@ -132,6 +132,12 @@ final class MainViewController: UIViewController {
     
     private func setupData() {
         damagochiManager.setup()
+        
+        if !damagochiManager.isDataAvailable {
+            let selectVC = SelectViewController()
+            selectVC.modalPresentationStyle = .fullScreen
+            present(selectVC, animated: true)
+        }
     }
     
     private func setupNavi() {
