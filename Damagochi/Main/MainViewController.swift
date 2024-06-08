@@ -122,9 +122,13 @@ final class MainViewController: UIViewController {
 
     //MARK: - Life Cycle
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupData()
         setupNavi()
         configureLayout()
         configureUI()

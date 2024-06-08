@@ -63,12 +63,16 @@ final class SelectViewController: UIViewController {
         view.backgroundColor = .customBackgroundColor
     }
     
-    
     //MARK: - Functions
     
-
-    
-
+    private func makeViewControllerForPresent(data: Damagochi, image: UIImage?, index: Int) {
+        let vc = SelectDetailViewController()
+        vc.damagochiImage = image
+        vc.damagochi = data
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true)
+    }
 }
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
@@ -84,8 +88,79 @@ extension SelectViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SelectTableViewCell.identifier, for: indexPath) as! SelectTableViewCell
+        cell.delegate = self
         cell.damagochi = self.damagochiList[indexPath.row]
         cell.selectionStyle = .none
         return cell
+    }
+}
+
+//MARK: - SelectTableViewCellDelegate
+
+extension SelectViewController: SelectTableViewCellDelegate {
+    func handleLeftImageViewTapped(for cell: SelectTableViewCell) {
+        guard let data = cell.damagochi?[0] else {return}
+        var sendImage: UIImage?
+        
+        if cell.damagochi?[0].kind == .firstModel {
+            sendImage = UIImage(named: "1-6")
+        }
+        
+        makeViewControllerForPresent(data: data, image: sendImage, index: 0)
+    }
+    
+    func handleCenterImageViewTapped(for cell: SelectTableViewCell) {
+        guard let data = cell.damagochi?[1] else {return}
+        var sendImage: UIImage?
+        
+        if cell.damagochi?[1].kind == .secondModel {
+            sendImage = UIImage(named: "2-6")
+        }
+        
+        makeViewControllerForPresent(data: data, image: sendImage, index: 0)
+    }
+    
+    func handleRightImageViewTapped(for cell: SelectTableViewCell) {
+        guard let data = cell.damagochi?[2] else {return}
+        var sendImage: UIImage?
+        
+        if cell.damagochi?[2].kind == .thirdModel {
+            sendImage = UIImage(named: "3-6")
+        }
+        
+        makeViewControllerForPresent(data: data, image: sendImage, index: 0)
+    }
+    
+    func handleLeftButtonTapped(for cell: SelectTableViewCell) {
+        guard let data = cell.damagochi?[0] else {return}
+        var sendImage: UIImage?
+        
+        if cell.damagochi?[0].kind == .firstModel {
+            sendImage = UIImage(named: "1-6")
+        }
+        
+        makeViewControllerForPresent(data: data, image: sendImage, index: 0)
+    }
+    
+    func handleCenterButtonTapped(for cell: SelectTableViewCell) {
+        guard let data = cell.damagochi?[1] else {return}
+        var sendImage: UIImage?
+        
+        if cell.damagochi?[1].kind == .secondModel {
+            sendImage = UIImage(named: "2-6")
+        }
+        
+        makeViewControllerForPresent(data: data, image: sendImage, index: 0)
+    }
+    
+    func handleRightButtonTapped(for cell: SelectTableViewCell) {
+        guard let data = cell.damagochi?[2] else {return}
+        var sendImage: UIImage?
+        
+        if cell.damagochi?[2].kind == .thirdModel {
+            sendImage = UIImage(named: "3-6")
+        }
+        
+        makeViewControllerForPresent(data: data, image: sendImage, index: 0)
     }
 }

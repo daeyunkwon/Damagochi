@@ -67,6 +67,10 @@ final class DamagochiManager {
         self.damagochi?.userNmae = name
     }
     
+    func changeKind(kind: Kind) {
+        self.damagochi?.kind = kind
+    }
+    
     
     
     

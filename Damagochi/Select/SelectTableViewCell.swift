@@ -19,15 +19,17 @@ final class SelectTableViewCell: UITableViewCell {
             guard let centerItem = damagochi?[1] else {return}
             guard let rightItem = damagochi?[2] else {return}
             
-            leftDamagochiImageView.image = leftItem.form
-            centerDamagochiImageView.image = centerItem.form
-            rightDamagochiImageView.image = rightItem.form
+            leftDamagochiImageView.image = leftItem.kind != .noneModel ? UIImage(named: "1-6") : UIImage(named: "noImage")
+            centerDamagochiImageView.image = centerItem.kind != .noneModel ? UIImage(named: "2-6") : UIImage(named: "noImage")
+            rightDamagochiImageView.image = rightItem.kind != .noneModel ? UIImage(named: "3-6") : UIImage(named: "noImage")
             
             leftNameButton.setTitle(leftItem.damagochiName, for: .normal)
             centerNameButton.setTitle(centerItem.damagochiName, for: .normal)
             rightNameButton.setTitle(rightItem.damagochiName, for: .normal)
         }
     }
+    
+    weak var delegate: SelectTableViewCellDelegate?
     
     //MARK: - UI Components
     
@@ -165,29 +167,26 @@ final class SelectTableViewCell: UITableViewCell {
     //MARK: - Functions
     
     @objc func leftImageViewTapped() {
-        print(#function)
+        self.delegate?.handleLeftImageViewTapped(for: self)
     }
     
     @objc func centerImageViewTapped() {
-        print(#function)
+        self.delegate?.handleCenterImageViewTapped(for: self)
     }
     
     @objc func rightImageViewTapped() {
-        print(#function)
+        self.delegate?.handleRightImageViewTapped(for: self)
     }
     
     @objc func leftNameButtonTapped() {
-        print(#function)
+        self.delegate?.handleLeftButtonTapped(for: self)
     }
     
     @objc func centerNameButtonTapped() {
-        print(#function)
+        self.delegate?.handleCenterButtonTapped(for: self)
     }
     
     @objc func rightNameButtonTapped() {
-        print(#function)
+        self.delegate?.handleRightButtonTapped(for: self)
     }
-    
-    
-    
 }

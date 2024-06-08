@@ -30,7 +30,7 @@ struct Damagochi {
             self.kind = data.kind
         } else {
             self.userNmae = "대장"
-            self.level = 0
+            self.level = 1
             self.eat = 0
             self.drink = 0
             self.kind = kind
