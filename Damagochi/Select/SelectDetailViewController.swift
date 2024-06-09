@@ -24,6 +24,8 @@ final class SelectDetailViewController: UIViewController {
     
     let damagochiManager = DamagochiManager.shared
     
+    var closureForPopToRootVC: (() -> Void) = {}
+    
     //MARK: - UI Components
     
     private let backView: UIView = {
@@ -208,6 +210,12 @@ final class SelectDetailViewController: UIViewController {
             return
         }
         
-        view.window?.rootViewController?.dismiss(animated: true)
+        if presentType == .select {
+            view.window?.rootViewController?.dismiss(animated: true)
+        } else if presentType == .change {
+            dismiss(animated: true) {
+                self.closureForPopToRootVC()
+            }
+        }
     }
 }

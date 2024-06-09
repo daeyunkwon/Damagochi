@@ -118,7 +118,10 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             let vc = ChangeNameViewController()
             navigationController?.pushViewController(vc, animated: true)
         case 1:
-            print("test")
+            let vc = SelectViewController()
+            vc.presentType = .change
+            
+            navigationController?.pushViewController(vc, animated: true)
         case 2:
             showInitializeDataAlert()
         default:

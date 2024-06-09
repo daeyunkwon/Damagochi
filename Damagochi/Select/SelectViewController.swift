@@ -13,7 +13,13 @@ final class SelectViewController: UIViewController {
     
     //MARK: - Properties
     
-    let damagochiList = Damagochi.selectDamagochiList
+    var damagochiList: [[Damagochi]] = []
+    
+    enum PresentType {
+        case select
+        case change
+    }
+    var presentType: PresentType = .select
     
     //MARK: - UI Components
     
@@ -21,7 +27,6 @@ final class SelectViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "다마고치 선택하기"
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 17)
         label.textAlignment = .center
@@ -32,9 +37,19 @@ final class SelectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDataList()
         setupTableView()
         configureLayout()
         configureUI()
+    }
+    
+    private func setupDataList() {
+        switch presentType {
+        case .select:
+            self.damagochiList = Damagochi.selectDamagochiList
+        case .change:
+            self.damagochiList = Damagochi.changeDamagochiList
+        }
     }
     
     private func setupTableView() {
@@ -61,12 +76,29 @@ final class SelectViewController: UIViewController {
     private func configureUI() {
         tableView.backgroundColor = .customBackgroundColor
         view.backgroundColor = .customBackgroundColor
+        
+        switch presentType {
+        case .select:
+            titleLabel.text = "다마고치 선택하기"
+        case .change:
+            setupNaviPrimary()
+            navigationItem.title = "다마고치 변경하기"
+        }
     }
     
     //MARK: - Functions
     
     private func makeViewControllerForPresent(data: Damagochi, image: UIImage?, index: Int) {
         let vc = SelectDetailViewController()
+        switch presentType {
+        case .select:
+            vc.presentType = .select
+        case .change:
+            vc.presentType = .change
+            vc.closureForPopToRootVC = {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
         vc.damagochiImage = image
         vc.damagochi = data
         vc.modalPresentationStyle = .overFullScreen

@@ -15,9 +15,10 @@ final class SelectTableViewCell: UITableViewCell {
     
     var damagochi: [Damagochi]? {
         didSet {
-            guard let leftItem = damagochi?[0] else {return}
-            guard let centerItem = damagochi?[1] else {return}
-            guard let rightItem = damagochi?[2] else {return}
+            guard let item = self.damagochi else {return}
+            let leftItem = item[0]
+            let centerItem = item[1]
+            let rightItem = item[2]
             
             leftDamagochiImageView.image = leftItem.kind != .noneModel ? UIImage(named: "1-6") : UIImage(named: "noImage")
             centerDamagochiImageView.image = centerItem.kind != .noneModel ? UIImage(named: "2-6") : UIImage(named: "noImage")

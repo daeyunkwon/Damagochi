@@ -75,6 +75,15 @@ struct Damagochi: Codable {
             self.commentType = .show
         }
     }
+    
+    init(kind: Kind, with userData: Damagochi) {
+        self.userName = userData.userName
+        self.level = userData.level
+        self.eat = userData.eat
+        self.drink = userData.drink
+        self.kind = kind
+        self.commentType = .show
+    }
 }
 
 extension Damagochi {
@@ -272,6 +281,19 @@ extension Damagochi {
             [Damagochi(kind: .noneModel), Damagochi(kind: .noneModel), Damagochi(kind: .noneModel)],
             [Damagochi(kind: .noneModel), Damagochi(kind: .noneModel), Damagochi(kind: .noneModel)],
             [Damagochi(kind: .noneModel), Damagochi(kind: .noneModel), Damagochi(kind: .noneModel)],
+        ]
+        return list
+    }
+    
+    static var changeDamagochiList: [[Damagochi]] {
+        guard let userData = UserDefaultsManager.damagochi else {return [[]]}
+        let list = [
+            [Damagochi(kind: .firstModel, with: userData), Damagochi(kind: .secondModel, with: userData), Damagochi(kind: .thirdModel, with: userData)],
+            [Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData)],
+            [Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData)],
+            [Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData)],
+            [Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData)],
+            [Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData), Damagochi(kind: .noneModel, with: userData)],
         ]
         return list
     }
