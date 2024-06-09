@@ -18,7 +18,7 @@ final class DamagochiManager {
         }
     }
     
-    var isDataAvailable: Bool = false
+    private var isDataAvailable: Bool = false
     
     func setup() {
         if let data = UserDefaultsManager.damagochi {
@@ -35,6 +35,10 @@ final class DamagochiManager {
     
     func get() -> Damagochi? {
         return self.damagochi
+    }
+    
+    func getIsDataAvailableValue() -> Bool {
+        return self.isDataAvailable
     }
     
     private func save() {
