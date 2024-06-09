@@ -57,14 +57,18 @@ final class SettingViewController: UIViewController {
         tableView.backgroundColor = .customBackgroundColor
     }
     
-    
     //MARK: - Functions
     
-    
-    
-    
-    
-
+    private func showInitializeDataAlert() {
+        let alert = UIAlertController(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실 건가요?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "아냐!", style: .cancel))
+        alert.addAction(UIAlertAction(title: "응", style: .default, handler: { okAction in
+            self.damagochiManager.deleteData() {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }))
+        present(alert, animated: true)
+    }
 }
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
@@ -113,8 +117,10 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         case 0:
             let vc = ChangeNameViewController()
             navigationController?.pushViewController(vc, animated: true)
-//        case 1:
-//        case 2:
+        case 1:
+            print("test")
+        case 2:
+            showInitializeDataAlert()
         default:
             break
         }

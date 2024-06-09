@@ -80,4 +80,10 @@ final class DamagochiManager {
         self.damagochi?.commentType = type
     }
     
+    func deleteData(completion: @escaping () -> Void) {
+        UserDefaultsManager.removeData()
+        self.damagochi = nil
+        setup()
+        completion()
+    }
 }

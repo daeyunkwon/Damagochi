@@ -22,5 +22,9 @@ struct UserDefaultsManager {
             UserDefaults.standard.set(encodedData, forKey: "damagochi")
         }
     }
+    
+    static func removeData() {
+        UserDefaults.standard.removeObject(forKey: "damagochi")
+    }
 }
 
