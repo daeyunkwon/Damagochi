@@ -22,7 +22,7 @@ final class DamagochiManager {
     
     func setup() {
         if let data = UserDefaultsManager.damagochi {
-            self.isDataAvailable = false
+            self.isDataAvailable = true
             self.damagochi = data
         } else {
             self.isDataAvailable = false

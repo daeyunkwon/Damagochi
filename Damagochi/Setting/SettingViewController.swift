@@ -128,6 +128,6 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             break
         }
         
-        tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: 0)], with: .automatic)
+        tableView.reloadData()
     }
 }

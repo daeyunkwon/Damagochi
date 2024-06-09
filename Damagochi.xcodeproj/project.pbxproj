@@ -123,10 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4411F0DD2C148AA000878AFE /* Protocols */,
-				4411F0C52C13439D00878AFE /* UIColor+Extension.swift */,
-				4411F0C72C13451300878AFE /* UIFont+Extension.swift */,
-				4411F0D42C14651600878AFE /* UIViewController+Extension.swift */,
-				4411F0E22C149E5100878AFE /* UIButton+Extension.swift */,
+				4411F0EB2C15A3E900878AFE /* Extension */,
 				4411F0CF2C13590D00878AFE /* UserDefaultsManager.swift */,
 				4411F0D92C1470F600878AFE /* Reuseable.swift */,
 			);
@@ -176,6 +173,17 @@
 				4411F0E92C15883F00878AFE /* ChangeNameViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		4411F0EB2C15A3E900878AFE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4411F0C52C13439D00878AFE /* UIColor+Extension.swift */,
+				4411F0C72C13451300878AFE /* UIFont+Extension.swift */,
+				4411F0D42C14651600878AFE /* UIViewController+Extension.swift */,
+				4411F0E22C149E5100878AFE /* UIButton+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
