@@ -122,9 +122,15 @@ final class MainViewController: UIViewController {
 
     //MARK: - Life Cycle
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = ""
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupData()
+        setupNavi()
         configureUI()
         updateComment(type: .show)
     }
@@ -146,7 +152,8 @@ final class MainViewController: UIViewController {
     }
     
     private func setupNavi() {
-        title = "대장님의 다마고치"
+        guard let username = damagochiManager.get()?.userName else {return}
+        title = "\(username)님의 다마고치"
         
         setupNaviPrimary()
         
@@ -265,7 +272,8 @@ final class MainViewController: UIViewController {
     }
     
     @objc func rightBarButtonTapped() {
-        print(#function)
+        let vc = SettingViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func eatButtonTapped() {

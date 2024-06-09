@@ -26,6 +26,9 @@
 		4411F0DF2C148AD700878AFE /* SelectTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0DE2C148AD600878AFE /* SelectTableViewCellDelegate.swift */; };
 		4411F0E12C14929700878AFE /* SelectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0E02C14929700878AFE /* SelectDetailViewController.swift */; };
 		4411F0E32C149E5100878AFE /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0E22C149E5100878AFE /* UIButton+Extension.swift */; };
+		4411F0E62C14D4A100878AFE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0E52C14D4A100878AFE /* SettingViewController.swift */; };
+		4411F0E82C14D68E00878AFE /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0E72C14D68E00878AFE /* SettingTableViewCell.swift */; };
+		4411F0EA2C15883F00878AFE /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4411F0E92C15883F00878AFE /* ChangeNameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		4411F0DE2C148AD600878AFE /* SelectTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		4411F0E02C14929700878AFE /* SelectDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDetailViewController.swift; sourceTree = "<group>"; };
 		4411F0E22C149E5100878AFE /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		4411F0E52C14D4A100878AFE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4411F0E72C14D68E00878AFE /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		4411F0E92C15883F00878AFE /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 				4411F0CE2C1347A500878AFE /* Model */,
 				4411F0D62C146F5A00878AFE /* Select */,
 				4411F0D12C1359A900878AFE /* Main */,
+				4411F0E42C14D46B00878AFE /* Setting */,
 				4411F0C12C13415F00878AFE /* Resource */,
 			);
 			path = Damagochi;
@@ -159,6 +166,16 @@
 				4411F0DE2C148AD600878AFE /* SelectTableViewCellDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4411F0E42C14D46B00878AFE /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4411F0E52C14D4A100878AFE /* SettingViewController.swift */,
+				4411F0E72C14D68E00878AFE /* SettingTableViewCell.swift */,
+				4411F0E92C15883F00878AFE /* ChangeNameViewController.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,16 +258,19 @@
 				4411F0D82C146FA500878AFE /* SelectViewController.swift in Sources */,
 				4411F0D52C14651600878AFE /* UIViewController+Extension.swift in Sources */,
 				4411F0B12C133F9C00878AFE /* MainViewController.swift in Sources */,
+				4411F0E62C14D4A100878AFE /* SettingViewController.swift in Sources */,
 				4411F0D32C135D1400878AFE /* DamagochiManager.swift in Sources */,
 				4411F0CD2C1347A000878AFE /* Damagochi.swift in Sources */,
 				4411F0AD2C133F9C00878AFE /* AppDelegate.swift in Sources */,
 				4411F0D02C13590D00878AFE /* UserDefaultsManager.swift in Sources */,
 				4411F0DA2C1470F600878AFE /* Reuseable.swift in Sources */,
 				4411F0E32C149E5100878AFE /* UIButton+Extension.swift in Sources */,
+				4411F0E82C14D68E00878AFE /* SettingTableViewCell.swift in Sources */,
 				4411F0AF2C133F9C00878AFE /* SceneDelegate.swift in Sources */,
 				4411F0DF2C148AD700878AFE /* SelectTableViewCellDelegate.swift in Sources */,
 				4411F0C82C13451300878AFE /* UIFont+Extension.swift in Sources */,
 				4411F0C62C13439D00878AFE /* UIColor+Extension.swift in Sources */,
+				4411F0EA2C15883F00878AFE /* ChangeNameViewController.swift in Sources */,
 				4411F0E12C14929700878AFE /* SelectDetailViewController.swift in Sources */,
 				4411F0DC2C1471CD00878AFE /* SelectTableViewCell.swift in Sources */,
 			);
