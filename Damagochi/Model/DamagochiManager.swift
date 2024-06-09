@@ -50,7 +50,8 @@ final class DamagochiManager {
         let drink = Double(damagochi.drink) / 2
         
         if eat != 0 && drink != 0 {
-            let result = Int(eat / drink)
+            let add = eat + drink
+            let result = Int(add / 10)
             
             if result != 0 {
                 self.damagochi?.level = result
