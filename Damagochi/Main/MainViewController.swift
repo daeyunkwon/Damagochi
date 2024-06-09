@@ -127,11 +127,11 @@ final class MainViewController: UIViewController {
         navigationItem.title = ""
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
         setupData()
-        setupNavi()
         configureUI()
+        setupNavi()
         updateComment(type: .show)
     }
     
@@ -144,9 +144,9 @@ final class MainViewController: UIViewController {
     private func setupData() {
         damagochiManager.setup()
         
-        if !damagochiManager.getIsDataAvailableValue() {
+        if damagochiManager.getIsDataAvailableValue() == false {
             let selectVC = SelectViewController()
-            selectVC.modalPresentationStyle = .fullScreen
+            selectVC.modalPresentationStyle = .currentContext
             present(selectVC, animated: true)
         }
     }
@@ -160,7 +160,7 @@ final class MainViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(rightBarButtonTapped))
     }
     
-    func configureLayout() {
+    private func configureLayout() {
         view.addSubview(bubbleImageView)
         bubbleImageView.snp.makeConstraints { make in
             make.width.equalTo(260)
@@ -250,7 +250,7 @@ final class MainViewController: UIViewController {
         updateUIWithData()
     }
     
-    func updateUIWithData() {
+    private func updateUIWithData() {
         guard let data = damagochiManager.get() else {return}
         
         damagochiImageView.image = data.form
@@ -258,7 +258,7 @@ final class MainViewController: UIViewController {
         stateLabel.text = "LV\(data.level) • 밥알 \(data.eat)개 • 물방울 \(data.drink)개"
     }
     
-    func updateComment(type: CommentType) {
+    private func updateComment(type: CommentType) {
         damagochiManager.updateCommentType(type: type)
         guard let data = damagochiManager.get() else {return}
         bubbleLabel.text = data.commnet
