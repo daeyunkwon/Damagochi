@@ -95,7 +95,8 @@ final class SelectViewController: UIViewController {
             vc.presentType = .select
         case .change:
             vc.presentType = .change
-            vc.closureForPopToRootVC = {
+            vc.closureForPopToRootVC = { [weak self] in
+                guard let self = self else {return}
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
