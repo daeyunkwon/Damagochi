@@ -290,6 +290,7 @@ final class MainViewController: UIViewController {
             damagochiManager.updateEat(numberOfEat: eatCount)
             updateUIWithData()
             updateComment(type: .eat)
+            eatInputTextField.text = nil
         } else {
             showAlert(message: "한 번에 먹을 수 있는 밥의 양은 99개까지 입니다!")
         }
@@ -309,6 +310,7 @@ final class MainViewController: UIViewController {
             damagochiManager.updateDrink(numberOfDrink: drinkCount)
             updateUIWithData()
             updateComment(type: .drink)
+            drinkInputTextField.text = nil
         } else {
             showAlert(message: "한 번에 먹을 수 있는 물의 양은 49개까지 입니다!")
         }
